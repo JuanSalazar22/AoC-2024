@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub fn part1(lines: Vec<String>) -> String {
     // Solve part 1
 
@@ -28,7 +30,7 @@ pub fn part2(lines: Vec<String>) -> String {
     let mut left_list = Vec::<i32>::new();
     let mut right_list = Vec::<i32>::new();
 
-    let mut total_distance: i32 = 0;
+    let mut similarity_list = Vec::<i32>::new();
 
     for line in lines {
         let parts = line.split_whitespace().collect::<Vec<&str>>();
@@ -36,6 +38,9 @@ pub fn part2(lines: Vec<String>) -> String {
         right_list.push(parts[1].parse::<i32>().unwrap());
     }
 
+    for number in left_list {
+        similarity_list.push(number * right_list.iter().filter(|&n| *n == number).count() as i32);
+    }
 
-    "Solution to part 2".to_string()
+    similarity_list.iter().sum::<i32>().to_string()
 }
