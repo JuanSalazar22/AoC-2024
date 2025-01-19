@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 pub fn part1(lines: Vec<String>) -> String {
     // Solve part 1
 
