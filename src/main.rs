@@ -2,6 +2,7 @@ mod days;
 mod utils;
 
 use std::env;
+use crate::days::{day01, day02, day03, day04};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -17,19 +18,13 @@ fn main() {
         Ok(lines) => {
             let result = match day.as_str() {
                 "1" => {
-                    let result1 = days::day01::part1(lines.clone());
-                    let result2 = days::day01::part2(lines);
-                    format!("Part 1: {}\nPart 2: {}", result1, result2)
+                    run_day_parts(lines, day01::part2, day01::part2)
                 }
                 "2" => {
-                    let result1 = days::day02::part1(lines.clone());
-                    let result2 = days::day02::part2(lines);
-                    format!("Part 1: {}\nPart 2: {}", result1, result2)
+                    run_day_parts(lines, day02::part2, day02::part2)
                 }
                 "3" => {
-                    let result1 = days::day03::part1(lines.clone());
-                    let result2 = days::day03::part2(lines);
-                    format!("Part 1: {}\nPart 2: {}", result1, result2)
+                    run_day_parts(lines, day03::part1, day03::part2)
                 }
                 _ => "Day not implemented!".to_string(),
             };
@@ -37,4 +32,8 @@ fn main() {
         }
         Err(e) => eprintln!("Error reading file: {}", e),
     }
+}
+
+fn run_day_parts(lines: Vec<String>, part1: fn(Vec<String>) -> String, part2: fn(Vec<String>) -> String) -> String {
+    format!("Part 1: {}\nPart 2: {}", part1(lines.clone()), part2(lines))
 }
