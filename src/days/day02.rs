@@ -2,7 +2,7 @@ const MAX_DELTA: i32 = 3;
 const MAX_ERRORS: i32 = 1;
 
 pub fn is_safe(digits: Vec<i32>) -> bool {
-    let mut is_ascending = digits.first() < digits.last();
+    let is_ascending = digits.first() < digits.last();
 
     for element_index in 0..(digits.len() - 1) {
         if is_ascending && digits[element_index] > digits[element_index+1] {
@@ -28,14 +28,13 @@ pub fn is_n_times_unsafe(mut digits: Vec<i32>) -> bool {
     if digits.first() == digits.last(){
         println!("cant define if they are descending or ascending")
     }
-
-    let mut number_of_errors = 0;
+    
     let mut index_to_remove = 0;
     let mut number_of_bad_levels = 0;
 
 
 
-    let mut is_ascending = digits.first() < digits.last();
+    let is_ascending = digits.first() < digits.last();
 
     for element_index in 0..(digits.len() - 1) {
         if is_ascending && digits[element_index] > digits[element_index+1] {

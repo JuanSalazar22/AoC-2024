@@ -1,4 +1,3 @@
-use regex::Regex;
 
 const WORD: &str = "XMAS";
 
@@ -12,7 +11,7 @@ pub fn part1(lines: Vec<String>) -> String {
 
     //print!("{:?}", matrix_of_characters);
 
-    for row in matrix_of_characters{
+    /*for row in matrix_of_characters{
         for character in row{
 
             for direction in directions{
@@ -24,7 +23,7 @@ pub fn part1(lines: Vec<String>) -> String {
 
 
         }
-    }
+    }*/
 
     
     "Day 4 Part 1".to_string()
