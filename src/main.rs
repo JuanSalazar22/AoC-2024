@@ -26,6 +26,9 @@ fn main() {
                 "3" => {
                     run_day_parts(lines, day03::part1, day03::part2)
                 }
+                "4" => {
+                    run_day_parts(lines, day04::part1, day04::part2)
+                }
                 _ => "Day not implemented!".to_string(),
             };
             println!("{}", result);

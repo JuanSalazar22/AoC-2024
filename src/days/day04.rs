@@ -1,46 +1,41 @@
 use regex::Regex;
 
-pub fn part1(lines: Vec<String>) -> String {
-    let re = Regex::new(r"mul\((\d+),(\d+)\)").unwrap();
-    let mut multiplication_accumulator = 0;
+const WORD: &str = "XMAS";
 
-    for line in &lines {
-        for cap in re.captures_iter(line) {
-            //println!("{:?}", cap);
-            if let (Ok(a), Ok(b)) = (cap[1].parse::<i32>(), cap[2].parse::<i32>()) {
-                multiplication_accumulator += a * b;
+pub fn part1(lines: Vec<String>) -> String {
+
+    let directions: Vec<(i8, i8)> = vec![(-1, -1), (-1, 0), (-1, 1), ( 0, -1), ( 0, 1), ( 1, -1), ( 1, 0), ( 1, 1)];
+
+    let matrix_of_characters: Vec<Vec<char>> = lines.iter().map(|row| {
+        row.chars().collect::<Vec<char>>()
+    }).collect::<Vec<Vec<char>>>();
+
+    //print!("{:?}", matrix_of_characters);
+
+    for row in matrix_of_characters{
+        for character in row{
+
+            for direction in directions{
+
             }
+
+
+
+
+
         }
     }
 
-    multiplication_accumulator.to_string()
+    
+    "Day 4 Part 1".to_string()
+
+
 }
 
 pub fn part2(lines: Vec<String>) -> String {
-    let re = Regex::new(r"mul\((\d+),(\d+)\)|do\(\)|don't\(\)").unwrap();
-    let mut multiplication_accumulator = 0;
-    let mut multiplication_enabled = true;
 
-    for line in &lines {
-        for cap in re.captures_iter(line) {
-            println!("{:?}", cap);
-            if cap[0].eq("do()") {
-                multiplication_enabled = true;
-                continue
-            }
+    let directions: Vec<(i32, i32)> = vec![(-1, -1), (-1, 0), (-1, 1), ( 0, -1), ( 0, 1), ( 1, -1), ( 1, 0), ( 1, 1)];
 
-            if cap[0].eq("don't()") {
-                multiplication_enabled = false;
-                continue
-            }
-
-            if multiplication_enabled{
-                if let (Ok(a), Ok(b)) = (cap[1].parse::<i32>(), cap[2].parse::<i32>()) {
-                    multiplication_accumulator += a * b;
-                }
-            }
-        }
-    }
-
-    multiplication_accumulator.to_string()
+    print!("{:?}", directions);
+    "Day 4 Part 2".to_string()
 }
