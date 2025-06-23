@@ -26,7 +26,7 @@ fn main() {
         Ok(lines) => {
             let result = match day.as_str() {
                 "1" => {
-                    run_day_parts(lines, day01::part2, day01::part2)
+                    run_day_parts(lines, day01::part1, day01::part2)
                 }
                 "2" => {
                     run_day_parts(lines, day02::part1, day02::part2)
